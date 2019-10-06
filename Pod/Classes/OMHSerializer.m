@@ -177,14 +177,9 @@
                 [serializedArray addObject:@{@"key":key,@"value":[dateMetadataValue RFC3339String]}];
             }
             else if ([[metadata valueForKey:key] isKindOfClass:[HKQuantity class]]) {
-                HKQuantity *quantity = [metadata valueForKey:key];
-                NSString *unitString = [OMHSerializer parseUnitFromQuantity:quantity];
-                [serializedArray addObject:@{@"key":key,@"value":@{
-                                                     @"unit_value":@{
-                                                             @"value": [NSNumber numberWithDouble:[quantity doubleValueForUnit:[HKUnit unitFromString:unitString]]],
-                                                             @"unit": unitString
-                                                             }
-                                                     }}];
+                // For now, ignore HKQuantity metadata values to avoid a JSON serialization ObjC exception.
+                // See previous commit for how we might parse/add the value.  That would also require schema
+                // and version changes, which is more than we (LifeOmic) need for now.
             }
             else{
                 [serializedArray addObject:@{@"key":key,@"value":[metadata valueForKey:key]}];
