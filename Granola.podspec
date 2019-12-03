@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Granola"
-  s.version          = "0.4.1" 
+  s.version          = "0.4.1"
   s.summary          = "A healthful serializer for your HealthKit data."
   s.homepage         = "https://github.com/openmhealth/Granola"
   s.license          = { :type => 'Apache 2.0',
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/openmhealth/Granola.git",
                          :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/openmhealth'
-  s.platform         = :ios, '7.0'
+  s.platform         = :ios, '11.0'
   s.requires_arc     = true
   s.source_files     = 'Pod/Classes/**/*'
   s.frameworks       = 'HealthKit'

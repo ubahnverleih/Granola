@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'Granola', :exclusive => true do
+target 'Granola' do
   pod "Granola", :path => "../"
 
   pod 'Specta', '~> 1.0'

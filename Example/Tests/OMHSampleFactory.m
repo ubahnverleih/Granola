@@ -224,7 +224,7 @@
     // see HKObject+Private.h
     // NOTE: throws _HKObjectValidationFailureException if invalid
     
-    [sample validateForSaving:nil];
+    [sample _validateForSavingWithClientEntitlements:nil error:nil];
     return sample;
 }
 
