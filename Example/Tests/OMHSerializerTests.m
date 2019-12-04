@@ -1135,7 +1135,7 @@ describe(@"HKQuantityTypeIdentifierBodyFatPercentage with time_interval", ^{
     itShouldBehaveLike(@"AnySerializerForSupportedSample",^{
         NSDate *start = [NSDate date];
         NSDate *end = [start dateByAddingTimeInterval:3600];
-        NSNumber *value = [NSNumber  numberWithDouble:.232];
+        NSNumber *value = [NSNumber  numberWithDouble:.231];
         NSString *unitString = @"%";
         HKSample *sample = [OMHSampleFactory typeIdentifier:HKQuantityTypeIdentifierBodyFatPercentage
                                                       attrs:@{@"value":value,
@@ -1148,7 +1148,7 @@ describe(@"HKQuantityTypeIdentifierBodyFatPercentage with time_interval", ^{
                          @"header.schema_id.name": @"body-fat-percentage",
                          @"header.schema_id.namespace":@"omh",
                          @"header.schema_id.version": @"1.0",
-                         @"body.body_fat_percentage.value": @23.2,
+                         @"body.body_fat_percentage.value": @23.1,
                          @"body.body_fat_percentage.unit": unitString,
                          @"body.effective_time_frame.time_interval.start_date_time": [sample.startDate RFC3339String],
                          @"body.effective_time_frame.time_interval.end_date_time": [sample.endDate RFC3339String]
