@@ -796,7 +796,7 @@
         
         [serializedUnitValues addEntriesFromDictionary:@{
                                                          @"unit_value":@{
-                                                                 @"value": @([value floatValue] * 100),
+                                                                 @"value": @([value doubleValue] * 100),
                                                                  @"unit": @"%"
                                                                  }
                                                          }
