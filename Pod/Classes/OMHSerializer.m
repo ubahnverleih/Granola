@@ -909,6 +909,12 @@
             of the represented measure as the value. */
         return @"Intermenstrual bleeding";
     }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMindfulSession]) {
+        /*  Samples of this type also use "HKCategoryValueNotApplicable".
+         https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifiermindfulsession?language=objc
+         */
+        return @"Mindful session";
+    }
     else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMenstrualFlow]) {
         return [OMHHealthKitConstantsMapper stringForHKMenstrualFlowValue:(int)categoryValue];
     }
