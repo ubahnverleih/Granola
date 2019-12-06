@@ -20,7 +20,7 @@
 @interface HKObject (Private)
 
 // source:
-// https://github.com/nst/iOS-Runtime-Headers/blob/e578efc846bd46a2d24a4fdd033cdc582323ccec/Frameworks/HealthKit.framework/HKObject.h#L55
-- (BOOL)_validateForSavingWithClientEntitlements:(id)arg1 error:(id*)arg2;
+// https://github.com/LeoNatan/Apple-Runtime-Headers/blob/master/iOS/Frameworks/HealthKit.framework/HKObject.h
+- (BOOL)_validateForSavingWithClientEntitlements:(id)arg1 applicationSDKVersion:(unsigned int)arg2 error:(id *)arg3;
 
 @end
