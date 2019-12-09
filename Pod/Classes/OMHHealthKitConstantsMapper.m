@@ -268,7 +268,8 @@
                                 HKCategoryTypeIdentifierIntermenstrualBleeding: @"OMHSerializerGenericCategorySample",
                                 HKCategoryTypeIdentifierMenstrualFlow: @"OMHSerializerGenericCategorySample",
                                 HKCategoryTypeIdentifierOvulationTestResult: @"OMHSerializerGenericCategorySample",
-                                HKCategoryTypeIdentifierSexualActivity: @"OMHSerializerGenericCategorySample"
+                                HKCategoryTypeIdentifierSexualActivity: @"OMHSerializerGenericCategorySample",
+                                HKCategoryTypeIdentifierMindfulSession: @"OMHSerializerGenericCategorySample"
                                 };
     }
     return allCategoryTypeIdsToClasses;

@@ -124,6 +124,9 @@ void (^logTypeSupportTableString)() = ^{
                                    HKCategoryTypeIdentifierMenstrualFlow,
                                    HKCategoryTypeIdentifierOvulationTestResult,
                                    HKCategoryTypeIdentifierSexualActivity
+                                   ],
+                           @"Mindful Session Identifier": @[
+                                   HKCategoryTypeIdentifierMindfulSession
                                    ]
                            };
     NSMutableArray* tableRows = [NSMutableArray array];
