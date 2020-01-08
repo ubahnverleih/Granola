@@ -760,6 +760,30 @@ describe(@"HKWorkoutTypeIdentifier with no details", ^{
     });
 });
 
+describe(@"HKWorkoutTypeIdentifier for iOS 10 type", ^{
+    itShouldBehaveLike(@"AnySerializerForSupportedSample",^{
+        NSDate *activityStart = [NSDate date];
+        NSDate *activityEnd = [activityStart dateByAddingTimeInterval:3600];
+
+        HKSample *workoutSample = [OMHSampleFactory typeIdentifier:HKWorkoutTypeIdentifier
+                                                             attrs:@{@"start":activityStart,
+                                                                     @"end":activityEnd,
+                                                                     @"activity_type":@(HKWorkoutActivityTypeHighIntensityIntervalTraining)
+                                                                     }];
+        return @{
+                 @"sample":workoutSample,
+                 @"pathsToValues":@{
+                         @"header.schema_id.name":@"hk-workout",
+                         @"header.schema_id.namespace":@"granola",
+                         @"header.schema_id.version": @"1.0",
+                         @"body.effective_time_frame.time_interval.start_date_time": [activityStart RFC3339String],
+                         @"body.effective_time_frame.time_interval.end_date_time": [activityEnd RFC3339String],
+                         @"body.activity_name":[OMHHealthKitConstantsMapper stringForHKWorkoutActivityType:HKWorkoutActivityTypeHighIntensityIntervalTraining]
+                         }
+                 };
+    });
+});
+
 describe(@"HKWorkoutTypeIdentifier with details", ^{
     itShouldBehaveLike(@"AnySerializerForSupportedSample",^{
         NSDate *activityStart = [NSDate date];

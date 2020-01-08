@@ -137,12 +137,49 @@
             return @"HKWorkoutActivityTypeYoga";
         case HKWorkoutActivityTypeOther:
             return @"HKWorkoutActivityTypeOther";
+        
+        // iOS 10+
+        case HKWorkoutActivityTypeBarre:
+            return @"HKWorkoutActivityTypeBarre";
+        case HKWorkoutActivityTypeCoreTraining:
+            return @"HKWorkoutActivityTypeCoreTraining";
+        case HKWorkoutActivityTypeCrossCountrySkiing:
+            return @"HKWorkoutActivityTypeCrossCountrySkiing";
+        case HKWorkoutActivityTypeDownhillSkiing:
+            return @"HKWorkoutActivityTypeDownhillSkiing";
+        case HKWorkoutActivityTypeFlexibility:
+            return @"HKWorkoutActivityTypeFlexibility";
+        case HKWorkoutActivityTypeHighIntensityIntervalTraining:
+            return @"HKWorkoutActivityTypeHighIntensityIntervalTraining";
+        case HKWorkoutActivityTypeJumpRope:
+            return @"HKWorkoutActivityTypeJumpRope";
+        case HKWorkoutActivityTypeKickboxing:
+            return @"HKWorkoutActivityTypeKickboxing";
+        case HKWorkoutActivityTypePilates:
+            return @"HKWorkoutActivityTypePilates";
+        case HKWorkoutActivityTypeSnowboarding:
+            return @"HKWorkoutActivityTypeSnowboarding";
+        case HKWorkoutActivityTypeStairs:
+            return @"HKWorkoutActivityTypeStairs";
+        case HKWorkoutActivityTypeStepTraining:
+            return @"HKWorkoutActivityTypeStepTraining";
+        case HKWorkoutActivityTypeWheelchairWalkPace:
+            return @"HKWorkoutActivityTypeWheelchairWalkPace";
+        case HKWorkoutActivityTypeWheelchairRunPace:
+            return @"HKWorkoutActivityTypeWheelchairRunPace";
+        case HKWorkoutActivityTypeTaiChi:
+            return @"HKWorkoutActivityTypeTaiChi";
+        case HKWorkoutActivityTypeMixedCardio:
+            return @"HKWorkoutActivityTypeMixedCardio";
+        case HKWorkoutActivityTypeHandCycling:
+            return @"HKWorkoutActivityTypeHandCycling";
+        case HKWorkoutActivityTypeDiscSports:
+            return @"HKWorkoutActivityTypeDiscSports";
+        case HKWorkoutActivityTypeFitnessGaming:
+            return @"HKWorkoutActivityTypeFitnessGaming";
+            
         default:{
-            NSException *e = [NSException
-                              exceptionWithName:@"HKWorkoutActivityTypeInvalidValue"
-                              reason:@"HKWorkoutActivityType can only have a value from the HKWorkoutActivityType enum"
-                              userInfo:nil];
-            @throw e;
+            return @"HKWorkoutActivityTypeOther";
         }
     }
 }
