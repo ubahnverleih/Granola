@@ -37,6 +37,8 @@
  */
 + (NSArray*)supportedTypeIdentifiers;
 
++ (NSString*)getCategoryValueForTypeWithValue: (HKCategoryType*) categoryType categoryValue:(NSInteger)categoryValue;
+
 /**
  Serializes HealthKit samples into Open mHealth compliant JSON data points.
  @param sample The HealthKit sample to be serialized.
