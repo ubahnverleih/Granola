@@ -192,6 +192,9 @@
         case HKCategoryValueSleepAnalysisAsleep:
             return @"Asleep";
             break;
+        case HKCategoryValueSleepAnalysisAwake:
+			return @"Awake";
+			break;
         default:{
             NSException *e = [NSException
                               exceptionWithName:@"HKCategoryValueSleepAnalysisInvalidValue"
