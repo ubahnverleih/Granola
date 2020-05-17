@@ -57,6 +57,52 @@
     return [[OMHHealthKitConstantsMapper allSupportedTypeIdentifiersToClasses] allKeys];
 }
 
++ (NSString*)getCategoryValueForTypeWithValue: (HKCategoryType*) categoryType categoryValue:(NSInteger)categoryValue {
+    
+    if ( [categoryType.description isEqualToString:HKCategoryTypeIdentifierAppleStandHour.description] ) {
+        return [OMHHealthKitConstantsMapper stringForHKAppleStandHourValue:(int)categoryValue];
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierSleepAnalysis.description]) {
+        return [OMHHealthKitConstantsMapper stringForHKSleepAnalysisValue:(int)categoryValue];
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierCervicalMucusQuality.description]) {
+        return [OMHHealthKitConstantsMapper stringForHKCervicalMucusQualityValue:(int)categoryValue];
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierIntermenstrualBleeding]) {
+        /*  Samples of this type represent the presence of intermenstrual bleeding and as such does not have a categorical value. HealthKit
+            specifies that the value field for this type is "HKCategoryValueNotApplicable" which is a nonsensical value, so we use the name 
+            of the represented measure as the value. */
+        return @"Intermenstrual bleeding";
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMindfulSession]) {
+        /*  Samples of this type also use "HKCategoryValueNotApplicable".
+         https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifiermindfulsession?language=objc
+         */
+        return @"Mindful session";
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMenstrualFlow]) {
+        return [OMHHealthKitConstantsMapper stringForHKMenstrualFlowValue:(int)categoryValue];
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierOvulationTestResult]) {
+        return [OMHHealthKitConstantsMapper stringForHKOvulationTestResultValue:(int)categoryValue];
+    }
+    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierSexualActivity]) {
+        /*  Samples of this type represent times during which sexual activity occurred. This means that during the time frame of each 
+            sample, sexual activity was occurring. As such, this measure does not have a categorical value. HealthKit specifies that the 
+            value field for this type is "HKCategoryValueNotApplicable" which is a nonsensical value, so we use the name of the represented 
+            measure as the value. */
+        return @"Sexual activity";
+    }
+    else{
+        NSException *e = [NSException
+                          exceptionWithName:@"InvalidHKCategoryType"
+                          reason:@"Incorrect category type parameter for method."
+                          userInfo:nil];
+        @throw e;
+    }
+    
+}
+
 + (BOOL)canSerialize:(HKSample*)sample error:(NSError**)error {
     @throw [self unimplementedException];
 }
@@ -890,52 +936,6 @@
              @"category_type": [categorySample categoryType].description,
              @"category_value": schemaMappedValue
              };
-}
-
-+ (NSString*)getCategoryValueForTypeWithValue: (HKCategoryType*) categoryType categoryValue:(NSInteger)categoryValue {
-    
-    if ( [categoryType.description isEqualToString:HKCategoryTypeIdentifierAppleStandHour.description] ) {
-        return [OMHHealthKitConstantsMapper stringForHKAppleStandHourValue:(int)categoryValue];
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierSleepAnalysis.description]) {
-        return [OMHHealthKitConstantsMapper stringForHKSleepAnalysisValue:(int)categoryValue];
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierCervicalMucusQuality.description]) {
-        return [OMHHealthKitConstantsMapper stringForHKCervicalMucusQualityValue:(int)categoryValue];
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierIntermenstrualBleeding]) {
-        /*  Samples of this type represent the presence of intermenstrual bleeding and as such does not have a categorical value. HealthKit
-            specifies that the value field for this type is "HKCategoryValueNotApplicable" which is a nonsensical value, so we use the name 
-            of the represented measure as the value. */
-        return @"Intermenstrual bleeding";
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMindfulSession]) {
-        /*  Samples of this type also use "HKCategoryValueNotApplicable".
-         https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifiermindfulsession?language=objc
-         */
-        return @"Mindful session";
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierMenstrualFlow]) {
-        return [OMHHealthKitConstantsMapper stringForHKMenstrualFlowValue:(int)categoryValue];
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierOvulationTestResult]) {
-        return [OMHHealthKitConstantsMapper stringForHKOvulationTestResultValue:(int)categoryValue];
-    }
-    else if ([categoryType.description isEqualToString:HKCategoryTypeIdentifierSexualActivity]) {
-        /*  Samples of this type represent times during which sexual activity occurred. This means that during the time frame of each 
-            sample, sexual activity was occurring. As such, this measure does not have a categorical value. HealthKit specifies that the 
-            value field for this type is "HKCategoryValueNotApplicable" which is a nonsensical value, so we use the name of the represented 
-            measure as the value. */
-        return @"Sexual activity";
-    }
-    else{
-        NSException *e = [NSException
-                          exceptionWithName:@"InvalidHKCategoryType"
-                          reason:@"Incorrect category type parameter for method."
-                          userInfo:nil];
-        @throw e;
-    }
-    
 }
 
 - (NSString*)schemaName {
