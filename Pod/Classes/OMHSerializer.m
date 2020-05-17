@@ -883,7 +883,7 @@
     HKCategorySample *categorySample = (HKCategorySample*) self.sample;
     
     //Error checking for correct types is done in the canSerialize method.
-    NSString *schemaMappedValue = [self getCategoryValueForTypeWithValue:categorySample.categoryType categoryValue:categorySample.value];
+    NSString *schemaMappedValue = [OMHSerializer getCategoryValueForTypeWithValue:categorySample.categoryType categoryValue:categorySample.value];
     
     return @{
              @"effective_time_frame":[self populateTimeFrameProperty:categorySample.startDate endDate:categorySample.endDate],
