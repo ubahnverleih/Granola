@@ -892,7 +892,7 @@
              };
 }
 
-- (NSString*)getCategoryValueForTypeWithValue: (HKCategoryType*) categoryType categoryValue:(NSInteger)categoryValue {
++ (NSString*)getCategoryValueForTypeWithValue: (HKCategoryType*) categoryType categoryValue:(NSInteger)categoryValue {
     
     if ( [categoryType.description isEqualToString:HKCategoryTypeIdentifierAppleStandHour.description] ) {
         return [OMHHealthKitConstantsMapper stringForHKAppleStandHourValue:(int)categoryValue];
